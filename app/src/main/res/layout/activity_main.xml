@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="uesocc.edu.sv.pam135_2018.calculadora2018.MainActivity">
+
+    <data>
+        <variable name="entrada" type="java.lang.String"/>
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +22,7 @@
             android:layoutDirection="rtl"
             android:maxLength="15"
             android:gravity="center|right"
-            android:text="253"
+            android:text="@{entrada}"
             android:textColor="#093364"
             android:textSize="60sp" />
 
@@ -43,7 +46,9 @@
                     android:elevation="0dp"
                     android:text="Borrar"
                     android:textColor="#7A0B1A"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:onClick="borrar"/>
+
 
                 <Button
                     android:id="@+id/btnDiv"
@@ -55,7 +60,11 @@
                     android:elevation="0dp"
                     android:text="/"
                     android:textColor="#2871C5"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="agregarOperacion"
+                    android:tag="/"
+                    />
+
             </TableRow>
 
             <TableRow
@@ -72,7 +81,10 @@
                     android:background="@drawable/button"
                     android:text="7"
                     android:textSize="30sp"
-                    tools:text="7" />
+                    tools:text="7"
+                    android:onClick="agregarDigito"
+                    android:tag="7"/>
+
 
                 <Button
                     android:id="@+id/btn8"
@@ -81,7 +93,11 @@
                     android:layout_weight="1"
                     android:background="@drawable/button"
                     android:text="8"
-                    android:textSize="30sp" />
+
+                    android:textSize="30sp"
+                    android:onClick="agregarDigito"
+                    android:tag="8"/>
+
 
                 <Button
                     android:id="@+id/btn9"
@@ -91,7 +107,10 @@
                     android:background="@drawable/button"
                     android:text="9"
                     android:textColor="#000"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="agregarDigito"
+                    android:tag="9"/>
+
 
                 <Button
                     android:id="@+id/btnMult"
@@ -101,7 +120,11 @@
                     android:background="@drawable/button"
                     android:text="x"
                     android:textColor="#2871C5"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:onClick="agregarOperacion"
+                    android:tag="*"
+                    />
+
             </TableRow>
 
             <TableRow
@@ -116,7 +139,10 @@
                     android:layout_weight="1"
                     android:background="@drawable/button"
                     android:text="4"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="agregarDigito"
+                    android:tag="4"/>
+
 
                 <Button
                     android:id="@+id/btn5"
@@ -125,7 +151,10 @@
                     android:layout_weight="1"
                     android:background="@drawable/button"
                     android:text="5"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="agregarDigito"
+                    android:tag="5"/>
+
 
                 <Button
                     android:id="@+id/btn6"
@@ -134,7 +163,10 @@
                     android:layout_weight="1"
                     android:background="@drawable/button"
                     android:text="6"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="agregarDigito"
+                    android:tag="6"/>
+
 
                 <Button
                     android:id="@+id/btnResta"
@@ -144,7 +176,11 @@
                     android:background="@drawable/button"
                     android:text="-"
                     android:textColor="#2871C5"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="agregarOperacion"
+                    android:tag="-"
+                    />
+
             </TableRow>
 
             <TableRow
@@ -159,7 +195,10 @@
                     android:layout_weight="1"
                     android:background="@drawable/button"
                     android:text="1"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="agregarDigito"
+                    android:tag="1"/>
+
 
                 <Button
                     android:id="@+id/btn2"
@@ -168,7 +207,10 @@
                     android:layout_weight="1"
                     android:background="@drawable/button"
                     android:text="2"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="agregarDigito"
+                    android:tag="2"/>
+
 
                 <Button
                     android:id="@+id/btn3"
@@ -177,7 +219,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/button"
                     android:text="3"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="agregarDigito"
+                    android:tag="3"/>
 
                 <Button
                     android:id="@+id/btnSuma"
@@ -187,7 +231,11 @@
                     android:background="@drawable/button"
                     android:text="+"
                     android:textColor="#2871C5"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="agregarOperacion"
+                    android:tag="+"
+                    />
+
             </TableRow>
 
             <TableRow
@@ -203,7 +251,9 @@
                     android:background="@drawable/button"
                     android:text="c"
                     android:textColor="#7A0B1A"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="btnClear"/>
+
 
                 <Button
                     android:id="@+id/btnCero"
@@ -212,7 +262,10 @@
                     android:layout_weight="1"
                     android:background="@drawable/button"
                     android:text="0"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="agregarDigito"
+                    android:tag="0"/>
+
 
                 <Button
                     android:id="@+id/btnPunto"
@@ -221,7 +274,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/button"
                     android:text="."
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="agregarDigito"
+                    android:tag="."/>
 
                 <Button
                     android:id="@+id/btnIgual"
@@ -231,12 +286,15 @@
                     android:background="@drawable/button3"
                     android:text="="
                     android:textColor="#fff"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:onClick="igual"
+                    />
+
             </TableRow>
         </TableLayout>
 
     </LinearLayout>
 
 
-</FrameLayout>
+</layout>
 
