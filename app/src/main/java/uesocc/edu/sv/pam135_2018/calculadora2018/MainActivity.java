@@ -89,12 +89,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void igualar(){
 
-        entrada = String.valueOf(calcularResultado(operacion));
-        binding.setEntrada(entrada);
-        limpiarEntrada = true;
-        numArriba = 0;
-        //mostrar
-        operacion = 'n';
+        if(!primerNumero) {
+            primerNumero = false;
+            numArriba = calcularResultado(operacion);
+            entrada = String.valueOf(numArriba);
+            numArriba = 0;
+            primerNumero = true;
+            limpiarEntrada = true;
+            binding.setEntrada(entrada);
+
+        }
+
+
     }
 
     public void igual(View v){
@@ -115,7 +121,12 @@ public class MainActivity extends AppCompatActivity {
                     resultado = numArriba * Double.parseDouble(entrada);
                     break;
                 case '/':
-                    resultado = numArriba / Double.parseDouble(entrada);
+                    if(!entrada.equals("0")) {
+                        resultado = numArriba / Double.parseDouble(entrada);
+                    }else{
+                        Toast.makeText(this, "División entre cero", Toast.LENGTH_LONG).show();
+                        reiniciar();
+                    }
             }
             return resultado;
         }catch(NumberFormatException e){
