@@ -10,9 +10,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.widget.TextView;
 import android.widget.Toast;
 
-import uesocc.edu.sv.pam135_2018.calculadora2018.databinding.ActivityMainBinding;
+//import uesocc.edu.sv.pam135_2018.calculadora2018.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,12 +22,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
-        binding.setEntrada(entrada);
+        txt = (TextView)findViewById(R.id.txtEntrada);
+        txt.setText("0");
+        //binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        //binding.setEntrada(entrada);
     }
 
-    ActivityMainBinding binding;
+    TextView txt;
+
+    //ActivityMainBinding binding;
     public double numArriba=0;
     boolean limpiarEntrada = true;
     boolean primerNumero = true;
@@ -42,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         }else if( !(entrada.contains(".") && digito == '.') ) {
             entrada += String.valueOf(digito);
         }
-        binding.setEntrada(entrada);
-        Toast.makeText(this,entrada,Toast.LENGTH_SHORT).show();
+        txt.setText(entrada.toString());
+        System.out.println(entrada);
 
     }
 
@@ -53,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             entrada = entrada.substring(0,entrada.length()-1);
         }
-        binding.setEntrada(entrada);
+        txt.setText(entrada);
     }
 
     public void reiniciar(){
@@ -61,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         numArriba=0;
         entrada="0";
         operacion='n';
-        binding.setEntrada(entrada);
+        txt.setText(entrada);
         limpiarEntrada = true;
         primerNumero = true;
     }
@@ -83,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         }
         operacion = v.getTag().toString().charAt(0);
         limpiarEntrada = true;
-        binding.setEntrada(entrada);
+        txt.setText(entrada);
         //mostrar
     }
 
@@ -96,11 +100,10 @@ public class MainActivity extends AppCompatActivity {
             numArriba = 0;
             primerNumero = true;
             limpiarEntrada = true;
-            binding.setEntrada(entrada);
+            System.out.println(entrada);
+            txt.setText(entrada);
 
         }
-
-
     }
 
     public void igual(View v){

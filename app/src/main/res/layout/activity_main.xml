@@ -6,9 +6,9 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="uesocc.edu.sv.pam135_2018.calculadora2018.MainActivity">
 
-    <data>
+    <!--data>
         <variable name="entrada" type="java.lang.String"/>
-    </data>
+    </data-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:layoutDirection="rtl"
             android:maxLength="15"
             android:gravity="center|right"
-            android:text="@{entrada}"
+            android:text="0"
             android:textColor="#093364"
             android:textSize="60sp" />
 
